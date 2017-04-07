@@ -10,7 +10,7 @@ Add the package to your `composer.json` and run `composer update`.
 
     {
         "require": {
-            "seytar/router": "*"
+            "seytar/router": "1.0.x-stable"
         }
     }
 
