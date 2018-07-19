@@ -1,4 +1,4 @@
-<?php namespace Seytar\Routing;
+<?php namespace docfr\Routing;
 
 use Illuminate\Container\Container;
 use Illuminate\Support\ClassLoader;
@@ -57,7 +57,7 @@ class Router {
         $this->bootstrap();
     }
 
-    public static function bootstrap($errorCallbacks)
+    public static function bootstrap($errorCallbacks,$routeFileName=false)
     {
         // Only bootstrap once.
         if (static::$bootstrapped)
@@ -105,6 +105,10 @@ class Router {
         }
 
         // Load the routes file if it exists.
+        if($routeFileName != false && file_exists($basePath . 'routes.php'))
+        {
+            require_once $routeFileName
+        }
         if (file_exists($basePath . 'routes.php'))
         {
             require_once $basePath . 'routes.php';
